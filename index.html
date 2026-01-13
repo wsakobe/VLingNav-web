@@ -28,30 +28,47 @@
     <script defer src="./static/js/fontawesome.all.min.js"></script>
     <script src="./static/js/slick.min.js"></script>
     <script src="./static/js/index.js"></script>
+    <style>
+        body { padding-top: 4.25rem; }
+        html { scroll-padding-top: 4.25rem; }
+    </style>
 </head>
 
 <body>
-    <!-- Table of Contents -->
-    <nav class="toc" aria-label="Table of contents">
-        <div class="toc__title">Table of Contents</div>
-        <ul class="toc__list">
-          <li><a href="#teaser">Teaser & Summary Video</a></li>
-      
-          <li>
-            <a href="#methods">Methods</a>
-            <ul class="toc__sublist">
-              <li><a href="#pipeline">Pipeline</a></li>
-              <li><a href="#data-collection">Data Collection</a></li>
-              <li><a href="#post-training">Online Expert-guided Post-training</a></li>
-            </ul>
-          </li>
-      
-          <li><a href="#real-world">Real-world Experiments</a></li>
-          <li><a href="#simulation">Simulation Visualization Results</a></li>
-          <li><a href="#acknowledgements">Acknowledgements</a></li>
-          <li><a href="#BibTeX">Citation</a></li>
-        </ul>
-      </nav>
+    <!-- Top Navbar -->
+    <nav class="navbar is-spaced is-light is-fixed-top" role="navigation" aria-label="main navigation">
+    <div class="navbar-brand">
+        <a class="navbar-item" href="#top">
+        <strong>VLingNav</strong>
+        </a>
+
+        <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" data-target="topNav">
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        <span aria-hidden="true"></span>
+        </a>
+    </div>
+
+    <div id="topNav" class="navbar-menu">
+        <div class="navbar-end">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+
+        <div class="navbar-item has-dropdown is-hoverable">
+            <a class="navbar-link" href="#methods">Methods</a>
+            <div class="navbar-dropdown">
+            <a class="navbar-item" href="#pipeline">Pipeline</a>
+            <a class="navbar-item" href="#data-collection">Data Collection</a>
+            <a class="navbar-item" href="#post-training">Post-training</a>
+            </div>
+        </div>
+
+        <a class="navbar-item" href="#real-world">Real-world</a>
+        <a class="navbar-item" href="#simulation">Simulation</a>
+        <a class="navbar-item" href="#acknowledgements">Acknowledgements</a>
+        </div>
+    </div>
+    </nav>
+
       
 
     <section class="hero">
@@ -163,6 +180,7 @@
                         <div class="tags are-medium teaser-tags">
                             <span class="tag is-info is-light">AdaCoT</span>
                             <span class="tag is-success is-light">VLingMem</span>
+                            <span class="tag is-warning is-light">Online Post-training</span>
                             <span class="tag is-link is-light">Nav-AdaCoT-2.9M</span>
                             <span class="tag is-warning is-light">ObjectNav / ImageNav / Tracking</span>
                         </div>
@@ -172,7 +190,7 @@
                 <!-- Summary Video -->
                 <div class="has-text-centered">
                     <h2 class="title is-4">Summary Video</h2>
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/BbrUdlkOjN8?si=FiDMq1gt0EfElWLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe width="840" height="473" src="https://www.youtube.com/embed/BbrUdlkOjN8?si=FiDMq1gt0EfElWLs" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
         </div>
@@ -288,12 +306,12 @@
     <section class="section" id="abstract">
     <div class="container is-max-desktop">
         <div class="columns is-centered">
-        <div class="column is-four-fifths">
+        <div class="column">
             <h2 class="title is-3 has-text-centered">Abstract</h2>
             <div class="content has-text-justified">
             <p>
-                Vision-Language-Action (VLA) models have shown promising potential in embodied navigation by unifying perception and planning while inheriting the strong generalization abilities of large Vision-Language Models (VLMs). However, most existing VLA models rely on reactive mappings directly from observations to actions, lacking the explicit reasoning capabilities and persistent memory required for complex, long-horizon navigation tasks. To address these challenges, we propose VLingNav, a VLA model for embodied navigation grounded in linguistic-driven cognition. First, inspired by the dual-process theory of human cognition, we introduce an adaptive chain-of-thought (AdaCoT) mechanism, which dynamically triggers explicit reasoning only when necessary, enabling the agent to fluidly switch between fast, intuitive execution and slow, deliberate planning. Second, to handle long-horizon spatial dependencies, we develop a visual-assisted linguistic memory module (VLingMem) that constructs a persistent, cross-modal semantic memory, enabling the agent to recall past observations to prevent repetitive exploration and infer movement trends for dynamic environments.
-For training, we construct Nav-AdaCoT-2.9M, the largest embodied navigation dataset with reasoning annotations to date, enriched with adaptive CoT annotations that induce a reasoning paradigm capable of adjusting both when to think and what to think about. Moreover, we incorporate an online expert-guided reinforcement learning stage, enabling the model to surpass pure imitation learning and to acquire more robust, self-explored navigation behaviors. Extensive experiments demonstrate that VLingNav achieves state-of-the-art performance across a wide range of embodied navigation benchmarks. Notably, VLingNav transfers to real-world robotic platforms in a zero-shot manner, successfully executing practical navigation tasks, including previously unseen and untrained tasks, and demonstrating strong cross-domain and cross-task generalization.
+                Vision-Language-Action (VLA) models have shown promising potential in embodied navigation by unifying perception and planning while inheriting the strong generalization abilities of large Vision-Language Models (VLMs). However, most existing VLA models rely on reactive mappings directly from observations to actions, lacking the explicit reasoning capabilities and persistent memory required for complex, long-horizon navigation tasks. To address these challenges, we propose \ours, a VLA model for embodied navigation grounded in linguistic-driven cognition. First, inspired by the fast-and-slow theory of human cognition, we introduce an adaptive chain-of-thought (AdaCoT) mechanism, which dynamically triggers explicit reasoning only when necessary, enabling the agent to fluidly switch between fast, intuitive execution and slow, deliberate planning. Second, to handle long-horizon spatial dependencies, we develop a visual-assisted linguistic memory module (VLingMem) that constructs a persistent, cross-modal semantic memory, enabling the agent to recall past observations to prevent repetitive exploration and infer movement trends for dynamic environments.
+For the training recipe, we construct Nav-AdaCoT-2.9M, the largest embodied navigation dataset with reasoning annotations to date, enriched with adaptive CoT annotations that induce a reasoning paradigm capable of adjusting both when to think and what to think about. Moreover, we incorporate an online expert-guided reinforcement learning stage, enabling the model to surpass pure imitation learning and to acquire more robust, self-explored navigation behaviors. Extensive experiments demonstrate that \ours achieves state-of-the-art performance across a wide range of embodied navigation benchmarks. Notably, \ours transfers to real-world robotic platforms in a zero-shot manner, successfully executing practical navigation tasks, including previously unseen and untrained tasks, and demonstrating strong cross-domain and cross-task generalization.
             </p>
             </div>
         </div>
@@ -634,7 +652,7 @@ For training, we construct Nav-AdaCoT-2.9M, the largest embodied navigation data
             <br>
             <div class="content has-text-justified">
                 <p>
-                    We sincerely thank Yunke Cai, Haiquan Chen, Shuai Chu, Bo Jiang, Yunfei Li, Xibin Wu, Tingshuai Yan for their strong support and fruitful discussions.
+                    We sincerely thank Yunke Cai, Haiquan Chen, Shuai Chu, Taifeng Gao, Bo Jiang, Yunfei Li, Yunfei Liu, Tao Wang, Xibin Wu, and Tingshuai Yan for their strong support and fruitful discussions.
                 </p>
             </div>
         </div>
