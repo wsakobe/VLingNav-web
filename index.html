@@ -49,7 +49,7 @@
           <li><a href="#real-world">Real-world Experiments</a></li>
           <li><a href="#simulation">Simulation Visualization Results</a></li>
           <li><a href="#acknowledgements">Acknowledgements</a></li>
-          <li><a href="#BibTeX">Citation</a></li>
+          <!-- <li><a href="#BibTeX">Citation</a></li> -->
         </ul>
       </nav>
       
@@ -162,6 +162,7 @@
                         <div class="tags are-medium teaser-tags">
                             <span class="tag is-info is-light">AdaCoT</span>
                             <span class="tag is-success is-light">VLingMem</span>
+                            <span class="tag is-warning is-light">Online Post-training</span>
                             <span class="tag is-link is-light">Nav-AdaCoT-2.9M</span>
                             <span class="tag is-warning is-light">ObjectNav / ImageNav / Tracking</span>
                         </div>
@@ -291,8 +292,9 @@
             <h2 class="title is-3 has-text-centered">Abstract</h2>
             <div class="content has-text-justified">
             <p>
-                Vision-Language-Action (VLA) models have shown promising potential in embodied navigation by unifying perception and planning while inheriting the strong generalization abilities of large Vision-Language Models (VLMs). However, most existing VLA models rely on reactive mappings directly from observations to actions, lacking the explicit reasoning capabilities and persistent memory required for complex, long-horizon navigation tasks. To address these challenges, we propose \ours, a VLA model for embodied navigation grounded in linguistic-driven cognition. First, inspired by the fast-and-slow theory of human cognition, we introduce an adaptive chain-of-thought (AdaCoT) mechanism, which dynamically triggers explicit reasoning only when necessary, enabling the agent to fluidly switch between fast, intuitive execution and slow, deliberate planning. Second, to handle long-horizon spatial dependencies, we develop a visual-assisted linguistic memory module (VLingMem) that constructs a persistent, cross-modal semantic memory, enabling the agent to recall past observations to prevent repetitive exploration and infer movement trends for dynamic environments.
-For the training recipe, we construct Nav-AdaCoT-2.9M, the largest embodied navigation dataset with reasoning annotations to date, enriched with adaptive CoT annotations that induce a reasoning paradigm capable of adjusting both when to think and what to think about. Moreover, we incorporate an online expert-guided reinforcement learning stage, enabling the model to surpass pure imitation learning and to acquire more robust, self-explored navigation behaviors. Extensive experiments demonstrate that \ours achieves state-of-the-art performance across a wide range of embodied navigation benchmarks. Notably, \ours transfers to real-world robotic platforms in a zero-shot manner, successfully executing practical navigation tasks, including previously unseen and untrained tasks, and demonstrating strong cross-domain and cross-task generalization.
+                Vision-Language-Action (VLA) models have shown promising potential in embodied navigation by unifying perception and planning while inheriting the strong generalization abilities of large Vision-Language Models (VLMs). However, most existing VLA models rely on reactive mappings directly from observations to actions, lacking the explicit reasoning capabilities and persistent memory required for complex, long-horizon navigation tasks. 
+                To address these challenges, we propose VLingNav, a VLA model for embodied navigation grounded in linguistic-driven cognition. First, inspired by the fast-and-slow theory of human cognition, we introduce an adaptive chain-of-thought (AdaCoT) mechanism, which dynamically triggers explicit reasoning only when necessary, enabling the agent to fluidly switch between fast, intuitive execution and slow, deliberate planning. Second, to handle long-horizon spatial dependencies, we develop a visual-assisted linguistic memory module (VLingMem) that constructs a persistent, cross-modal semantic memory, enabling the agent to recall past observations to prevent repetitive exploration and infer movement trends for dynamic environments.
+For the training recipe, we construct Nav-AdaCoT-2.9M, the largest embodied navigation dataset with reasoning annotations to date, enriched with adaptive CoT annotations that induce a reasoning paradigm capable of adjusting both when to think and what to think about. Moreover, we incorporate an online expert-guided reinforcement learning stage, enabling the model to surpass pure imitation learning and to acquire more robust, self-explored navigation behaviors. Extensive experiments demonstrate that VLingNav achieves state-of-the-art performance across a wide range of embodied navigation benchmarks. Notably, VLingNav transfers to real-world robotic platforms in a zero-shot manner, successfully executing practical navigation tasks, including previously unseen and untrained tasks, and demonstrating strong cross-domain and cross-task generalization.
             </p>
             </div>
         </div>
@@ -633,7 +635,7 @@ For the training recipe, we construct Nav-AdaCoT-2.9M, the largest embodied navi
             <br>
             <div class="content has-text-justified">
                 <p>
-                    We sincerely thank Yunke Cai, Haiquan Chen, Shuai Chu, Bo Jiang, Yunfei Li, Xibin Wu, Tingshuai Yan for their strong support and fruitful discussions.
+                    We sincerely thank Yunke Cai, Haiquan Chen, Shuai Chu, Taifeng Gao, Bo Jiang, Yunfei Li, Yunfei Liu, Tao Wang, Xibin Wu, Tingshuai Yan for their strong support and fruitful discussions.
                 </p>
             </div>
         </div>
